@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "517303110558",
+    "project_id": "salarycredits-1b75a",
+    "storage_bucket": "salarycredits-1b75a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517303110558:android:b4fd0ea06d83541e89a48f",
+        "android_client_info": {
+          "package_name": "com.northernlights.salarycredits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517303110558-e550mon6ifm3pcssn3tel6gfte5b5dke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3kwPEkPVRTxptvDOOqG3uAXP3bJm1G6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517303110558-e550mon6ifm3pcssn3tel6gfte5b5dke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
