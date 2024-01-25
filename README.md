@@ -1,4 +1,4 @@
-# SalaryCreditsApp
+# salarycredits
 
 SalaryCredits Mobile Application
 
