@@ -9,7 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/login/employer_info.dart';
 import '../models/login/login_response_model.dart';
 import '../models/support/ask_query_request_model.dart';
-import 'api_auth.dart';
 
 class UserHandler {
   bool isError = false;
@@ -134,7 +133,6 @@ class UserHandler {
 
   Future<String> loginWithEmail(BuildContext context, EmailLoginRequestModel loginRequestModel) async {
     String jsonBody = "";
-    final ApiToken apiToken = ApiToken();
 
     try {
       var request = http.Request('POST', Uri.parse(APIHelper.emailLogin));
@@ -164,7 +162,6 @@ class UserHandler {
 
   Future<String> loginWithMobile(BuildContext context, MobileLoginRequestModel loginRequestModel) async {
     String jsonBody = "";
-    final ApiToken apiToken = ApiToken();
 
     try {
       var request = http.Request('POST', Uri.parse(APIHelper.mobileLogin));
