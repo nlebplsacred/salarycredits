@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:salarycredits/features/loan_apply_confirm_otp/loan_apply_otp_page.dart';

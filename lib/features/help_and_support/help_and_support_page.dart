@@ -7,7 +7,6 @@ import 'package:salarycredits/services/user_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/login/login_response_model.dart';
-import '../../services/loan_handler.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
 import '../../values/styles.dart';

@@ -287,16 +287,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
     String? lLocation = userInformation?.cityName;
     String lUserTitle = "N/A";
 
-    if (lDesignation != null && lLocation != null) {
-      lUserTitle = "$lDesignation | $lLocation";
-    } else {
-      if (lLocation != null) {
-        lUserTitle = lLocation;
-      } else if (lDesignation != null) {
-        lUserTitle = lDesignation;
-      }
-    }
-    return lUserTitle;
+    lUserTitle = "$lDesignation | $lLocation";
+      return lUserTitle;
   }
 
   String getDOB(String dob) {
@@ -305,7 +297,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
       if (dob != "") {
         lDOB = outputFormatDate.format(DateTime.parse(dob));
       }
-    } on FormatException catch (_, ex) {}
+    } on FormatException catch (_) {}
 
     return lDOB;
   }
@@ -1166,7 +1158,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                               Global.showAlertDialog(context, "Network not available");
                             }
                           });
-                        } on Exception catch (e) {
+                        } on Exception {
                           setState(() {
                             isLoading = false;
                             Global.showAlertDialog(context, "Network not available");
@@ -1223,7 +1215,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           mobileNumberMasked = "Mobile Number - ${Global.getMaskedMobile(mobileNumber)}";
                         });
                       });
-                    } on Exception catch (e) {
+                    } on Exception {
                       setState(() {
                         isLoading = false;
                         Global.showAlertDialog(context, "Network not available");
@@ -1368,7 +1360,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                             mobileNumberMasked = "Mobile Number - ${Global.getMaskedMobile(mobileNumber)}";
                           });
                         });
-                      } on Exception catch (e) {
+                      } on Exception {
                         setState(() {
                           isLoading = false;
                           Global.showAlertDialog(context, "Network not available");

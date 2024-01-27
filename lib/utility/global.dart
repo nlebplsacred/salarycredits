@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:salarycredits/values/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -195,7 +194,7 @@ class Global {
       if (dob != "") {
         startDate = DateTime.parse(dob);
       }
-    } on FormatException catch (_, ex) {}
+    } on FormatException catch (_) {}
 
     DateTime endDate = DateTime.now(); // Use the current date as the end date
 

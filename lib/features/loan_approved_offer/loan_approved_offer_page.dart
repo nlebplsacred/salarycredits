@@ -82,7 +82,7 @@ class _LoanApprovedOfferPageState extends State<LoanApprovedOfferPage> {
       if (date != "") {
         lDate = format.format(DateTime.parse(date));
       }
-    } on FormatException catch (_, ex) {}
+    } on FormatException catch (_) {}
 
     return lDate;
   }

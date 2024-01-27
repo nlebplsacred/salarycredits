@@ -63,7 +63,7 @@ class _MyApplicationDetailsPageState extends State<MyApplicationDetailsPage> {
       if (date != "") {
         lDate = outputFormatDate.format(DateTime.parse(date));
       }
-    } on FormatException catch (_, ex) {}
+    } on FormatException catch (_) {}
 
     return lDate;
   }

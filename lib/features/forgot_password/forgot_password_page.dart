@@ -146,7 +146,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           validator: MultiValidator([
                             RequiredValidator(errorText: "* Required"),
                             EmailValidator(errorText: "Enter valid email id"),
-                          ]),
+                          ]).call,
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius:

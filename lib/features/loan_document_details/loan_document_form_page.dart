@@ -17,7 +17,6 @@ import '../../models/document/document_model.dart';
 import '../../models/loan/loan_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/file_handler.dart';
-import '../../services/loan_handler.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
 import '../../values/styles.dart';

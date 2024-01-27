@@ -10,10 +10,8 @@ import '../../models/loan/master_data_model.dart';
 import '../../models/loan/personal_data_base_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/loan_handler.dart';
-import '../../utility/custom_loader.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
-import '../../values/strings.dart';
 import '../../values/styles.dart';
 
 class LoanAddressFormPage extends StatefulWidget {
