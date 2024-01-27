@@ -5,10 +5,12 @@ import 'package:salarycredits/models/loan/applicant_dashboard_base_model.dart';
 import 'package:salarycredits/models/login/login_request_model.dart';
 import 'package:salarycredits/models/profile/profile_model.dart';
 import 'package:salarycredits/utility/api_helper.dart';
+import 'package:salarycredits/utility/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/login/employer_info.dart';
 import '../models/login/login_response_model.dart';
 import '../models/support/ask_query_request_model.dart';
+import 'api_auth.dart';
 
 class UserHandler {
   bool isError = false;
@@ -21,6 +23,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -50,6 +57,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -82,6 +94,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
 
       request.headers.addAll(headers);
@@ -112,6 +129,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -133,6 +155,7 @@ class UserHandler {
 
   Future<String> loginWithEmail(BuildContext context, EmailLoginRequestModel loginRequestModel) async {
     String jsonBody = "";
+    final ApiToken apiToken = ApiToken();
 
     try {
       var request = http.Request('POST', Uri.parse(APIHelper.emailLogin));
@@ -140,6 +163,13 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        apiToken.getToken();
+        await Future.delayed(const Duration(seconds: 2));
+        token = prefsUser.getString('tokenValue');
+        //print('token1: $token');
+      }
       //print('token2: $token');
 
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
@@ -162,6 +192,7 @@ class UserHandler {
 
   Future<String> loginWithMobile(BuildContext context, MobileLoginRequestModel loginRequestModel) async {
     String jsonBody = "";
+    final ApiToken apiToken = ApiToken();
 
     try {
       var request = http.Request('POST', Uri.parse(APIHelper.mobileLogin));
@@ -169,6 +200,12 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        apiToken.getToken();
+        await Future.delayed(const Duration(seconds: 2));
+        token = prefsUser.getString('tokenValue');
+      }
 
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
@@ -195,6 +232,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
 
       request.headers.addAll(headers);
@@ -220,6 +262,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
 
       request.headers.addAll(headers);
@@ -246,6 +293,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {
         'Authorization': 'Bearer $token',
       };
@@ -274,6 +326,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
 
       request.headers.addAll(headers);
@@ -299,6 +356,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
 
       request.headers.addAll(headers);
@@ -324,6 +386,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -352,6 +419,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -381,6 +453,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -409,6 +486,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -438,6 +520,11 @@ class UserHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
+
+      if (token == null) {
+        Global.getReToken();
+        token = prefsUser.getString('tokenValue');
+      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
