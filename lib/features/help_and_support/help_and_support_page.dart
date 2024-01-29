@@ -164,6 +164,7 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                                   width: double.infinity,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColor.lightBlue,
                                       shape: const RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                       ),

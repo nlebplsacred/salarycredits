@@ -321,6 +321,7 @@ class _LoanApprovedOfferPageState extends State<LoanApprovedOfferPage> {
                           width: 200.0,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColor.lightBlue,
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                               ),

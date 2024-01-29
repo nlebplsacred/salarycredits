@@ -289,6 +289,7 @@ class _LoginWithEmailPageState extends State<LoginWithEmailPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.lightBlue,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(8),
