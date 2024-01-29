@@ -51,6 +51,7 @@ class _ActiveSalaryAccountPageState extends State<ActiveSalaryAccountPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
