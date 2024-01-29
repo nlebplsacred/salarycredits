@@ -129,6 +129,12 @@ class Global {
                     thickness: 1,
                   ),
                   ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.lightBlue,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

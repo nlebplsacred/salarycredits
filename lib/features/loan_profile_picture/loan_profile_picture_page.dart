@@ -524,6 +524,12 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
           ),
           actions: <Widget>[
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.lightBlue,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
+                ),
+              ),
               onPressed: () {
                 requestCameraPermission();
                 Navigator.of(context).pop(); //Close the dialog
