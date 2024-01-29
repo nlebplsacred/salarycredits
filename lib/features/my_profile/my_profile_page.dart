@@ -13,7 +13,6 @@ import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_cropper/image_cropper.dart';
-
 import '../../models/document/document_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/file_handler.dart';
@@ -564,6 +563,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -580,7 +580,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 SizedBox(
                   height: double.infinity,
-                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -604,11 +603,11 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: double.infinity,
-                  width: 50,
+                const Expanded(
+                    child: Align(
+                  alignment: Alignment.centerRight,
                   child: Icon(Icons.done, size: 28, color: AppColor.lightBlack),
-                ),
+                ))
               ],
             ),
           ),
