@@ -16,8 +16,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: false,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text('Hi ${user.firstName} ${user.lastName ?? ""}', textAlign: TextAlign.left),
           const Text(
