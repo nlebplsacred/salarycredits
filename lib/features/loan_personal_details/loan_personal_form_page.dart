@@ -207,6 +207,7 @@ class _LoanPersonalFormPageState extends State<LoanPersonalFormPage> {
     return Scaffold(
       backgroundColor: AppColor.bgDefault1,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,

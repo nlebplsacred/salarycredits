@@ -82,7 +82,7 @@ class _SalaryAdvancePageState extends State<SalaryAdvancePage> {
     if (userBaseDashboard.shortLoanDetails.getStatusId == 2) {
       if (userBaseDashboard.shortLoanDetails.getIsProcessDone) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       } else {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -91,12 +91,12 @@ class _SalaryAdvancePageState extends State<SalaryAdvancePage> {
       }
     } else if (userBaseDashboard.shortLoanDetails.getStatusId == 1 || userBaseDashboard.shortLoanDetails.getStatusId == 4) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return LoanProcessStatusPage(loanType: productList.applicationType);
+        return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
       }));
     } else {
       if (actionTagDetails.statusId == 1) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       }
     }
@@ -215,6 +215,7 @@ class _SalaryAdvancePageState extends State<SalaryAdvancePage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -447,7 +448,7 @@ class _SalaryAdvancePageState extends State<SalaryAdvancePage> {
                   border: Border.all(color: AppColor.grey2, width: 1)),
               child: Column(
                 children: [
-                  Text("INR ${user.netPayableSalary!}", style: AppStyle.sliderTitleAmt, textAlign: TextAlign.center),
+                  Text("INR ${user.netPayableSalary!.round()}", style: AppStyle.sliderTitleAmt, textAlign: TextAlign.center),
                   const SizedBox(height: 16),
                   const Text("Repay in 3 installments", style: AppStyle.textLabel3),
                   Padding(
@@ -463,7 +464,7 @@ class _SalaryAdvancePageState extends State<SalaryAdvancePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             const Text("You Receive", style: AppStyle.textLabelWithBG),
-                            Text("INR ${model.getYouReceiveAmount}*", style: AppStyle.pageTitle2),
+                            Text("INR ${model.getYouReceiveAmount}", style: AppStyle.pageTitle2),
                           ],
                         ),
                         const SizedBox(height: 12.0),

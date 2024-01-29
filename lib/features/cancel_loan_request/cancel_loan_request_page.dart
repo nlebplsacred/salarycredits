@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ import '../../services/loan_handler.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
 import '../../values/styles.dart';
+import '../dashboard/dashboard_page.dart';
 
 class CancelLoanRequestPage extends StatefulWidget {
   const CancelLoanRequestPage({super.key});
@@ -68,6 +70,17 @@ class _CancelLoanRequestPageState extends State<CancelLoanRequestPage> {
     super.dispose();
   }
 
+  startTime() async {
+    var duration = const Duration(seconds: 2);
+    return Timer(duration, route);
+  }
+
+  route() {
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return const DashboardPage();
+    }));
+  }
+
   void cancelLoanRequest(LoanCancelRequestModel requestModel) {
     setState(() {
       isLoading = true;
@@ -96,6 +109,9 @@ class _CancelLoanRequestPageState extends State<CancelLoanRequestPage> {
             showHideError = true;
 
             futureShortLoanModel = getLoanUnderProcessStatus(user.applicantId!);
+
+            startTime(); //send to dashboard after 2 seconds
+
           } else {
             showHideError = true;
 

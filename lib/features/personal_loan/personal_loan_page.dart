@@ -94,7 +94,7 @@ class _PersonalLoanPageState extends State<PersonalLoanPage> {
     if (userBaseDashboard.shortLoanDetails.getStatusId == 2) {
       if (userBaseDashboard.shortLoanDetails.getIsProcessDone) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       } else {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -103,12 +103,12 @@ class _PersonalLoanPageState extends State<PersonalLoanPage> {
       }
     } else if (userBaseDashboard.shortLoanDetails.getStatusId == 1 || userBaseDashboard.shortLoanDetails.getStatusId == 4) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return LoanProcessStatusPage(loanType: productList.applicationType);
+        return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
       }));
     } else {
       if (actionTagDetails.statusId == 1) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       }
     }
@@ -247,6 +247,7 @@ class _PersonalLoanPageState extends State<PersonalLoanPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
