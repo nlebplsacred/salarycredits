@@ -673,7 +673,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 10.0),
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: IconButton(
@@ -819,14 +819,14 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                   openIMGDialog(filePath, "PAN Card"); // Open the PDF dialog
                                 }
                               },
-                              child: const Icon(Icons.download_done, size: 28, color: AppColor.darkBlue),
+                              child: const Icon(Icons.download_done, size: 26, color: AppColor.darkBlue),
                             )
                           : IconButton(
                               onPressed: () {
                                 fileTypeId = "1";
                                 showDialogForKycUpload("PAN Card", "A clear photo of PAN card"); //open popup to choose doc
                               },
-                              icon: const Icon(Icons.upload_rounded, size: 28, color: AppColor.darkBlue),
+                              icon: const Icon(Icons.upload_rounded, size: 26, color: AppColor.darkBlue),
                             ),
                     ),
                   ),
@@ -915,14 +915,14 @@ class _MyProfilePageState extends State<MyProfilePage> {
                                     }
                                   }
                                 },
-                                child: const Icon(Icons.download_done, size: 28, color: AppColor.darkBlue),
+                                child: const Icon(Icons.download_done, size: 26, color: AppColor.darkBlue),
                               )
                             : IconButton(
                                 onPressed: () {
                                   fileTypeId = "2";
                                   showDialogForKycUpload("Aadhaar Card", "A clear photo of Aadhaar Card (both sides)"); //open popup to choose doc
                                 },
-                                icon: const Icon(Icons.upload_rounded, size: 28, color: AppColor.darkBlue),
+                                icon: const Icon(Icons.upload_rounded, size: 26, color: AppColor.darkBlue),
                               ),
                       ),
                     ),
