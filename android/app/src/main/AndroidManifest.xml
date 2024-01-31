@@ -33,7 +33,7 @@
     </queries>
 
     <application
-        android:label="salarycredits"
+        android:label="SalaryCredits"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
