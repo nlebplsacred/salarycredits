@@ -248,7 +248,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        showImagePicker(); // Permission is granted
+        //Permission is granted
+        //showImagePicker(); //Open the camera/gallery both
+        _imgFromCamera(); //Open only camera
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -429,7 +431,8 @@ class _MyProfilePageState extends State<MyProfilePage> {
 
                                     fileTypeId = "4";
                                     if (status) {
-                                      showImagePicker(); //Open the camera
+                                      //showImagePicker(); //Open the camera/gallery both
+                                      _imgFromCamera(); //Open only camera
                                     } else {
                                       //open popup for prominent disclose of permission
                                       showAlertDialogForCamera();
