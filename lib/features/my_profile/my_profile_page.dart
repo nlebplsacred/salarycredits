@@ -450,7 +450,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15.0),
-                            child: Text('${user.firstName} ${user.lastName ?? "NA"}', style: AppStyle.userProfile),
+                            child: Text('${user.firstName} ${user.lastName ?? "NA"}', style: AppStyle.pageTitleLarge1),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
@@ -471,7 +471,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text("${Global.getYears(profileModel.userInformation!.dOB.toString())}Yrs", style: AppStyle.userProfile),
+                            child: Text("${Global.getYears(profileModel.userInformation!.dOB.toString())}Yrs", style: AppStyle.pageTitle),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
@@ -498,7 +498,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text('\u{20B9}${user.netPayableSalary?.round() ?? 0}', style: AppStyle.userProfile),
+                            child: Text('\u{20B9}${user.netPayableSalary?.round() ?? 0}', style: AppStyle.pageTitle),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
@@ -525,7 +525,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text(profileModel.userInformation?.genderType ?? "NA", style: AppStyle.userProfile),
+                            child: Text(profileModel.userInformation?.genderType ?? "NA", style: AppStyle.pageTitle),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
