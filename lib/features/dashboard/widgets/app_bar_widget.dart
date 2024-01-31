@@ -45,7 +45,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     }));
                   },
                   icon: const Icon(Icons.support_agent_rounded, size: 26,),
-                  color: AppColor.darkBlue,
+                  color: AppColor.lightBlue,
                 ),
               ),
             ],
