@@ -2,11 +2,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:salarycredits/values/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../models/loan/master_data_model.dart';
 import '../services/api_auth.dart';
 import 'package:intl/intl.dart';
-
 import '../values/colors.dart';
 
 class Global {
@@ -38,6 +36,31 @@ class Global {
         break;
       case 1:
         lIConFIle = "assets/pl_white_100.png";
+        break;
+    }
+    return lIConFIle;
+  }
+
+  static String getIconPath(int applicationTypeId) {
+    String lIConFIle = "https://data.salarycredits.com/content/images/icons/salary_advance_loan.png";
+    switch (applicationTypeId) {
+      case 13:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/earn-wage-access.png";
+        break;
+      case 9:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/fast_pay_loan.png";
+        break;
+      case 6:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/salary_advance_loan.png";
+        break;
+      case 5:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/custom_advance_loan.png";
+        break;
+      case 3:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/debt_consolidation_loan.png";
+        break;
+      case 1:
+        lIConFIle = "https://data.salarycredits.com/content/images/icons/personal_loan.png";
         break;
     }
     return lIConFIle;

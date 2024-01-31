@@ -65,11 +65,9 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
           }
 
           if (statusId == "1") {
-
             showHideForm = false;
             showHideError = true;
             errorMessage = message;
-
           } else {
             Global.showAlertDialog(context, message);
           }
@@ -118,82 +116,72 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
         child: Column(
           children: [
             Visibility(
-                visible: showHideForm,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 12.0),
-                  width: double.maxFinite,
-                  height: 380.0,
-                  decoration: const BoxDecoration(
-                    color: AppColor.white,
-                    boxShadow: [
-                      BoxShadow(color: AppColor.grey2, blurRadius: 3.0),
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: Form(
-                      key: formKey,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: TextFormField(
-                              controller: remarkController,
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please describe your query";
-                                }
-                                return null;
-                              },
-                              maxLines: 4,
-                              decoration: const InputDecoration(
-                                filled: true,
-                                fillColor: AppColor.white,
-                                border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-                                hintText: 'Please describe your query...',
-                              ),
-                            ),
+              visible: showHideForm,
+              child: Padding(
+                padding: const EdgeInsets.all(32.0),
+                child: Form(
+                  key: formKey,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 16.0),
+                        child: TextFormField(
+                          controller: remarkController,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please describe your query";
+                            }
+                            return null;
+                          },
+                          maxLines: 4,
+                          decoration: const InputDecoration(
+                            filled: true,
+                            fillColor: AppColor.white,
+                            border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
+                            hintText: 'Please describe your query...',
                           ),
-                          Visibility(
-                            visible: true,
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 16.0, left: 0.0, right: 0.0, bottom: 16.0),
-                                child: SizedBox(
-                                  height: 50,
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: AppColor.lightBlue,
-                                      shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate()) {
-                                        askQueryRequest(remarkController.text.toString());
-                                      }
-                                    },
-                                    child: isLoading
-                                        ? const CircularProgressIndicator(
-                                            backgroundColor: AppColor.white,
-                                            color: AppColor.lightBlue,
-                                          )
-                                        : const Text(
-                                            'Submit',
-                                            style: AppStyle.buttonText,
-                                          ),
+                        ),
+                      ),
+                      Visibility(
+                        visible: true,
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 16.0, left: 0.0, right: 0.0, bottom: 16.0),
+                            child: SizedBox(
+                              height: 50,
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColor.lightBlue,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                   ),
                                 ),
+                                onPressed: () {
+                                  if (formKey.currentState!.validate()) {
+                                    askQueryRequest(remarkController.text.toString());
+                                  }
+                                },
+                                child: isLoading
+                                    ? const CircularProgressIndicator(
+                                        backgroundColor: AppColor.white,
+                                        color: AppColor.lightBlue,
+                                      )
+                                    : const Text(
+                                        'Submit',
+                                        style: AppStyle.buttonText,
+                                      ),
                               ),
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                )),
+                ),
+              ),
+            ),
             Visibility(
               visible: showHideError,
               child: Column(
@@ -222,6 +210,10 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                 ],
               ),
             ),
+            const SizedBox(height: 8.0,),
+            const Text("Mail us: support@salarycredits.com", style: AppStyle.pageTitle),
+            // const SizedBox(height: 8.0,),
+            // const Text("Call: +91-925-046-6666", style: AppStyle.pageTitle2),
           ],
         ),
       ),

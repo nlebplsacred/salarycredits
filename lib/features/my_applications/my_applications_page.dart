@@ -189,8 +189,8 @@ class _MyApplicationsPageState extends State<MyApplicationsPage> {
                             child: Material(
                               color: AppColor.lightBlue,
                               child: Padding(
-                                padding: const EdgeInsets.all(3),
-                                child: Image.asset(Global.getIconName(model.getShortLoanList[index].getApplicationTypeId), color: AppColor.white),
+                                padding: const EdgeInsets.all(7),
+                                child: Image.network(Global.getIconPath(model.getShortLoanList[index].getApplicationTypeId), color: AppColor.white),
                               ),
                             ),
                           ),

@@ -514,9 +514,9 @@ class _DashboardPageState extends State<DashboardPage> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: AppColor.lightBlue,
+                    color: AppColor.bgScreen3,
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    border: Border.all(width: 1, color: AppColor.lightBlue),
+                    border: Border.all(width: 1, color: AppColor.bgScreen3),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 12.0, right: 12.0),

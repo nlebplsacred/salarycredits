@@ -608,7 +608,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     padding: EdgeInsets.only(right: 16.0),
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Icon(Icons.done, size: 26, color: AppColor.lightBlack),
+                      child: Icon(Icons.done, size: 26, color: AppColor.green),
                     ),
                   ),
                 ),
@@ -640,7 +640,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     child: const ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       child: Material(
-                        color: AppColor.darkBlue,
+                        color: AppColor.bgScreen3,
                         child: Icon(Icons.mobile_friendly_rounded, size: 24, color: AppColor.white),
                       ),
                     ),
@@ -680,7 +680,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         onPressed: () {
                           showMobileUpdateView();
                         },
-                        icon: const Icon(Icons.edit, size: 26, color: AppColor.darkBlue),
+                        icon: const Icon(Icons.edit, size: 24, color: AppColor.darkBlue),
                       ),
                     ),
                   ),
