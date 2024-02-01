@@ -80,6 +80,7 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   void bindProcessStatus(ShortLoanDetails shortLoanDetails) {
+
     shortLoan = shortLoanDetails;
 
     if (shortLoan.getApplicationId > 0) {
@@ -104,7 +105,6 @@ class _DashboardPageState extends State<DashboardPage> {
         }
       } else if (shortLoan.getStatusId == 4) {
         //HR Approved
-
         processDescription = "Application Id - ${shortLoan.getApplicationId} Approved by HR";
       } else if (shortLoan.getStatusId == 5) {
         //HR Rejected
@@ -362,8 +362,8 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   Column getOfferView(ApplicantDashboardBaseModel applicantDashboardBaseModel) {
-    bindProcessStatus(applicantDashboardBaseModel.shortLoanDetails);
 
+    bindProcessStatus(applicantDashboardBaseModel.shortLoanDetails);
     bindApprovedOffer(applicantDashboardBaseModel.approvedOffer);
 
     return Column(
@@ -544,5 +544,6 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ],
     );
+
   }
 }

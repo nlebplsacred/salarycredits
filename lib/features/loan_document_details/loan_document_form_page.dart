@@ -70,9 +70,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
   }
 
   callback() {
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   void determinateIndicator() {
@@ -234,7 +232,11 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        showImagePicker(); // Permission is granted
+        if (mPdfOnly) {
+          _imgFromGallery(); //open only gallery
+        } else {
+          showImagePicker(); //Open the camera
+        }
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -493,7 +495,11 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
                         const permission = Permission.camera;
                         final status = await permission.status.isGranted;
                         if (status) {
-                          showImagePicker(); //Open the camera
+                          if (mPdfOnly) {
+                            _imgFromGallery();
+                          } else {
+                            showImagePicker(); //Open the camera
+                          }
                         } else {
                           //open popup for prominent disclose of permission
                           showAlertDialogForCamera();
