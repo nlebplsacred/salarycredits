@@ -56,6 +56,7 @@ class _OfferListViewState extends State<OfferListView> {
             border: Border.all(width: 1, color: AppColor.grey2),
           ),
           child: ListTile(
+            contentPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
             onTap: () {
               setState(() {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
