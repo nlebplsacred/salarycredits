@@ -698,6 +698,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.4.2;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.northernlights.salarycredits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
