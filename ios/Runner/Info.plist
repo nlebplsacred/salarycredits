@@ -35,9 +35,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Explanation on why the camera access is needed.</string>
+	<string>Allow access to camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>photos</string>
+	<string>Allow access to photo library</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
