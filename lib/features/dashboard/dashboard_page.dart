@@ -138,7 +138,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   void bindApprovedOffer(ApprovedOffer approvedOffer) {
     if (approvedOffer.getApplicationId > 0) {
-      offerTitle = "Check final offer for Application Id - ${approvedOffer.getApplicationId}";
+      offerTitle = "Offer received for Application Id - ${approvedOffer.getApplicationId}";
       offerDescription = "Offer sent by lender at ${getDate(approvedOffer.getCreatedOn, outputFormatDate)}";
       showHideApprovedOffer = true;
     }
@@ -460,7 +460,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          color: AppColor.darkBlue2,
+                          color: AppColor.darkBlue,
                           borderRadius: const BorderRadius.all(Radius.circular(8)),
                           border: Border.all(width: 1, color: AppColor.darkBlue),
                         ),
