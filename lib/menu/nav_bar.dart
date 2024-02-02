@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:salarycredits/features/about_us/about_us_page.dart';
 import 'package:salarycredits/features/emi_calculator/emi_calculator_page.dart';
@@ -11,7 +14,7 @@ import '../features/help_and_support/help_and_support_page.dart';
 import '../features/my_applications/my_applications_page.dart';
 import '../features/my_profile/my_profile_page.dart';
 import '../utility/global.dart';
-// import 'package:share_plus/share_plus.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NavBar extends StatelessWidget {
   final LoginResponseModel user;
@@ -145,25 +148,25 @@ class NavBar extends StatelessWidget {
             onTap: () async  {
               Navigator.pop(context);
 
-              // //write code to share this app
-              // if (Platform.isAndroid) {
-              //
-              //   Share.share('https://play.google.com/store/apps/details?id=com.northernlights.salarycredits', subject: "SalaryCredits - Employee Wellness Tool");
-              //
-              // } else if (Platform.isIOS)  {
-              //
-              //   final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
-              //   final IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
-              //
-              //   // The 'identifierForVendor' is a unique identifier for the app on the device.
-              //   // You can use it to construct the App Store URL.
-              //   final String? appId = iosInfo.identifierForVendor;
-              //
-              //   // Construct the App Store URL using the app's identifier.
-              //   final String appStoreUrl = 'https://apps.apple.com/app/$appId';
-              //
-              //   Share.share(appStoreUrl, subject: "SalaryCredits - Employee Wellness Tool");
-              // }
+              //write code to share this app
+              if (Platform.isAndroid) {
+
+                Share.share('https://play.google.com/store/apps/details?id=com.northernlights.salarycredits', subject: "SalaryCredits - Employee Wellness Tool");
+
+              } else if (Platform.isIOS)  {
+
+                final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
+                final IosDeviceInfo iosInfo = await deviceInfoPlugin.iosInfo;
+
+                // The 'identifierForVendor' is a unique identifier for the app on the device.
+                // You can use it to construct the App Store URL.
+                final String? appId = iosInfo.identifierForVendor;
+
+                // Construct the App Store URL using the app's identifier.
+                final String appStoreUrl = 'https://apps.apple.com/app/$appId';
+
+                Share.share(appStoreUrl, subject: "SalaryCredits - Employee Wellness Tool");
+              }
             },
           ),
           // ListTile(
