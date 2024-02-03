@@ -63,7 +63,7 @@ class _MyApplicationDetailsPageState extends State<MyApplicationDetailsPage> {
       if (date != "") {
         lDate = outputFormatDate.format(DateTime.parse(date));
       }
-    } on FormatException catch (_, ex) {}
+    } on FormatException catch (_) {}
 
     return lDate;
   }
@@ -89,6 +89,7 @@ class _MyApplicationDetailsPageState extends State<MyApplicationDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         elevation: 0,
         toolbarHeight: 0,
         systemOverlayStyle: const SystemUiOverlayStyle(

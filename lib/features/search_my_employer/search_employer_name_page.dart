@@ -73,6 +73,7 @@ class _SearchEmployerNamePageState extends State<SearchEmployerNamePage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -169,6 +170,7 @@ class _SearchEmployerNamePageState extends State<SearchEmployerNamePage> {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.lightBlue,
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                                 Radius.circular(8)), // <-- Radius
@@ -243,6 +245,7 @@ class _SearchEmployerNamePageState extends State<SearchEmployerNamePage> {
             width: 60.0,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.lightBlue,
                 shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.all(Radius.circular(8)), // <-- Radius

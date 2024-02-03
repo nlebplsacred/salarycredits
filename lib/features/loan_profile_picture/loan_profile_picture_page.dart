@@ -8,7 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:salarycredits/features/loan_apply_confirm_otp/loan_apply_otp_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../models/document/document_model.dart';
 import '../../models/loan/lender_consent_model.dart';
 import '../../models/loan/loan_model.dart';
@@ -161,7 +160,9 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        showImagePicker(); // Permission is granted
+        // Permission is granted
+        //showImagePicker(); //Open camera/gallery
+        _imgFromCamera(); //Open only camera
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -244,7 +245,7 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
               Padding(
                 padding: EdgeInsets.only(top: 32, left: 0.0),
                 child: Text(
-                  "Add Profile Picture",
+                  "Add Profile Photo",
                   style: AppStyle.userProfile,
                 ),
               ),
@@ -291,7 +292,8 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
                               final status = await permission.status.isGranted;
 
                               if (status) {
-                                showImagePicker(); //Open the camera
+                                //showImagePicker(); //Open camera/gallery
+                                _imgFromCamera(); //Open only camera
                               } else {
                                 //open popup for prominent disclose of permission
                                 showAlertDialogForCamera();
@@ -316,18 +318,8 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 48, left: 16.0, right: 16.0),
-            child: Text("Supported File Formats".toUpperCase(), style: AppStyle.heading16),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 26, left: 32.0, right: 32.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset("assets/jpg_icon.png", color: AppColor.loanBox3, width: 48.0, height: 48.0),
-                Image.asset("assets/png_icon.png", color: AppColor.yellowLight, width: 48.0, height: 48.0),
-              ],
-            ),
+            padding: const EdgeInsets.only(top: 32, left: 16.0, right: 16.0),
+            child: Text("Take a clear selfy".toUpperCase(), style: AppStyle.pageTitle3),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
@@ -347,6 +339,7 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.lightBlue,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                     ),
@@ -523,6 +516,12 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
           ),
           actions: <Widget>[
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.lightBlue,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
+                ),
+              ),
               onPressed: () {
                 requestCameraPermission();
                 Navigator.of(context).pop(); //Close the dialog

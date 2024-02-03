@@ -10,10 +10,8 @@ import '../../models/loan/master_data_model.dart';
 import '../../models/loan/personal_data_base_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/loan_handler.dart';
-import '../../utility/custom_loader.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
-import '../../values/strings.dart';
 import '../../values/styles.dart';
 
 class LoanAddressFormPage extends StatefulWidget {
@@ -230,6 +228,7 @@ class _LoanAddressFormPageState extends State<LoanAddressFormPage> {
     return Scaffold(
       backgroundColor: AppColor.bgDefault1,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -538,6 +537,7 @@ class _LoanAddressFormPageState extends State<LoanAddressFormPage> {
                           width: double.infinity,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColor.lightBlue,
                               shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                               ),

@@ -125,6 +125,12 @@ class AppStyle {
     fontWeight: FontWeight.normal,
   );
 
+  static const TextStyle smallWhite = TextStyle(
+    color: AppColor.white,
+    fontSize: 12.0,
+    fontWeight: FontWeight.normal,
+  );
+
   static const TextStyle smallGrey13 = TextStyle(
     color: AppColor.grey,
     fontSize: 13.0,
@@ -157,6 +163,12 @@ class AppStyle {
     color: AppColor.darkBlue2,
     fontSize: 14.0,
     fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle titleWhite = TextStyle(
+    color: AppColor.white,
+    fontSize: 24.0,
+    fontWeight: FontWeight.w600,
   );
 
   static const TextStyle title1White = TextStyle(

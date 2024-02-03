@@ -2,9 +2,7 @@ import 'dart:convert';
 import 'package:http_parser/http_parser.dart';
 import 'package:http/http.dart' as http;
 import 'package:mime/mime.dart';
-import 'package:salarycredits/models/profile/profile_model.dart';
 import 'package:salarycredits/utility/api_helper.dart';
-import 'package:salarycredits/utility/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/document/document_model.dart';
 
@@ -18,11 +16,6 @@ class FileHandler {
     try {
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       var request = http.MultipartRequest('POST', Uri.parse(APIHelper.uploadFile));
@@ -77,11 +70,6 @@ class FileHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();

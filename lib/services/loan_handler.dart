@@ -6,7 +6,6 @@ import 'package:salarycredits/models/loan/application_request_model.dart';
 import 'package:salarycredits/models/loan/faqs_model.dart';
 import 'package:salarycredits/models/loan/lender_consent_model.dart';
 import 'package:salarycredits/utility/api_helper.dart';
-import 'package:salarycredits/utility/global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/loan/action_tag_details_model.dart';
 import '../models/loan/city_pincode_model.dart';
@@ -36,11 +35,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -77,11 +71,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -119,11 +108,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -153,11 +137,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -191,11 +170,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -224,11 +198,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -257,11 +226,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -291,11 +255,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -357,11 +316,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -390,11 +344,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();
@@ -417,11 +366,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -454,11 +398,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -490,11 +429,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -526,11 +460,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -562,11 +491,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -599,11 +523,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -636,11 +555,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -670,11 +584,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -705,11 +614,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -740,11 +644,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -775,11 +674,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -813,11 +707,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -847,11 +736,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -882,11 +766,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -917,11 +796,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -952,11 +826,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -987,11 +856,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
@@ -1025,11 +889,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -1068,11 +927,6 @@ class LoanHandler {
 
       SharedPreferences prefsUser = await SharedPreferences.getInstance();
       String? token = prefsUser.getString('tokenValue');
-
-      if (token == null) {
-        Global.getReToken();
-        token = prefsUser.getString('tokenValue');
-      }
       var headers = {'Authorization': 'Bearer $token', 'Content-Type': 'application/json'};
 
       request.headers.addAll(headers);
@@ -1109,11 +963,6 @@ class LoanHandler {
 
     SharedPreferences prefsUser = await SharedPreferences.getInstance();
     String? token = prefsUser.getString('tokenValue');
-
-    if (token == null) {
-      Global.getReToken();
-      token = prefsUser.getString('tokenValue');
-    }
     var headers = {'Authorization': 'Bearer $token'};
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();

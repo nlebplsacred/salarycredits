@@ -96,6 +96,7 @@ class _NominateMyEmployerActivityState
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -271,6 +272,7 @@ class _NominateMyEmployerActivityState
                     width: 200.0,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.lightBlue,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                               Radius.circular(8)), // <-- Radius
@@ -345,6 +347,7 @@ class _NominateMyEmployerActivityState
             width: 200.0,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.lightBlue,
                 shape: const RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.all(Radius.circular(8)), // <-- Radius

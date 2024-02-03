@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:salarycredits/features/loan_apply_confirm_otp/loan_apply_otp_page.dart';
@@ -119,6 +118,7 @@ class _LoanTermsAcceptancePageState extends State<LoanTermsAcceptancePage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -274,6 +274,7 @@ class _LoanTermsAcceptancePageState extends State<LoanTermsAcceptancePage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.lightBlue,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                             ),

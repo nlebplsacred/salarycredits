@@ -63,6 +63,7 @@ class _MyUpcomingDeductionPageState extends State<MyUpcomingDeductionPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -90,7 +91,7 @@ class _MyUpcomingDeductionPageState extends State<MyUpcomingDeductionPage> {
                 height: 120.0,
                 width: double.maxFinite,
                 decoration: const BoxDecoration(
-                  color: AppColor.lightBlue,
+                  color: AppColor.bgScreen3,
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   boxShadow: [
                     BoxShadow(
@@ -166,7 +167,7 @@ class _MyUpcomingDeductionPageState extends State<MyUpcomingDeductionPage> {
                             Text(getDate(activeDeductionBase.activeDeductions[index].getEMIDate, outputFormatMonth), style: AppStyle.smallGrey),
                           ],
                         ),
-                        trailing: const Icon(Icons.keyboard_arrow_right, color: AppColor.lightBlue, size: 32),
+                        trailing: const Icon(Icons.keyboard_arrow_right, color: AppColor.lightBlack, size: 32),
                       ),
                     );
                   }),

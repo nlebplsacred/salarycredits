@@ -104,6 +104,7 @@ class _LoginWithEmailPageState extends State<LoginWithEmailPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -289,6 +290,7 @@ class _LoginWithEmailPageState extends State<LoginWithEmailPage> {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColor.lightBlue,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(8),

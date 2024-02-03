@@ -17,7 +17,6 @@ import '../../models/document/document_model.dart';
 import '../../models/loan/loan_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/file_handler.dart';
-import '../../services/loan_handler.dart';
 import '../../utility/global.dart';
 import '../../values/colors.dart';
 import '../../values/styles.dart';
@@ -71,9 +70,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
   }
 
   callback() {
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   void determinateIndicator() {
@@ -235,7 +232,11 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        showImagePicker(); // Permission is granted
+        if (mPdfOnly) {
+          _imgFromGallery(); //open only gallery
+        } else {
+          showImagePicker(); //Open the camera
+        }
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -273,6 +274,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -493,7 +495,11 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
                         const permission = Permission.camera;
                         final status = await permission.status.isGranted;
                         if (status) {
-                          showImagePicker(); //Open the camera
+                          if (mPdfOnly) {
+                            _imgFromGallery();
+                          } else {
+                            showImagePicker(); //Open the camera
+                          }
                         } else {
                           //open popup for prominent disclose of permission
                           showAlertDialogForCamera();
@@ -708,6 +714,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.lightBlue,
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                             ),
@@ -825,6 +832,12 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
           ),
           actions: <Widget>[
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColor.lightBlue,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
+                ),
+              ),
               onPressed: () {
                 requestCameraPermission();
                 Navigator.of(context).pop(); //Close the dialog

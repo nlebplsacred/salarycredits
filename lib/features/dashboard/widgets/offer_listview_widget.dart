@@ -4,7 +4,6 @@ import 'package:salarycredits/features/debt_consolidation/debt_consolidation_pag
 import 'package:salarycredits/features/earned_wage_access/ewa_page.dart';
 import 'package:salarycredits/features/fast_pay/fast_pay_page.dart';
 import 'package:salarycredits/features/salary_advance/salary_advance_page.dart';
-import 'package:salarycredits/utility/global.dart';
 import 'package:salarycredits/values/styles.dart';
 import '../../../models/loan/applicant_dashboard_base_model.dart';
 import '../../../values/colors.dart';
@@ -57,6 +56,7 @@ class _OfferListViewState extends State<OfferListView> {
             border: Border.all(width: 1, color: AppColor.grey2),
           ),
           child: ListTile(
+            contentPadding: const EdgeInsets.only(left: 8.0, right: 8.0),
             onTap: () {
               setState(() {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -94,10 +94,10 @@ class _OfferListViewState extends State<OfferListView> {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: Material(
-                  color: AppColor.lightBlue,
+                  color: AppColor.white,
                   child: Padding(
                     padding: const EdgeInsets.all(3),
-                    child: Image.asset(Global.getIconName(productList[index].applicationTypeId), color: AppColor.white),
+                    child: Image.network(productList[index].applicationIconPath, color: AppColor.lightBlue),
                   ),
                 ),
               ),

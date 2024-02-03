@@ -381,6 +381,7 @@ class _LoanProcessPendingPageState extends State<LoanProcessPendingPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -558,6 +559,7 @@ class _LoanProcessPendingPageState extends State<LoanProcessPendingPage> {
                                                         width: double.infinity,
                                                         child: ElevatedButton(
                                                           style: ElevatedButton.styleFrom(
+                                                            backgroundColor: AppColor.lightBlue,
                                                             shape: const RoundedRectangleBorder(
                                                               borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                                             ),
@@ -843,6 +845,7 @@ class _LoanProcessPendingPageState extends State<LoanProcessPendingPage> {
                                                         width: double.infinity,
                                                         child: ElevatedButton(
                                                           style: ElevatedButton.styleFrom(
+                                                            backgroundColor: AppColor.lightBlue,
                                                             shape: const RoundedRectangleBorder(
                                                               borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                                             ),
@@ -996,6 +999,7 @@ class _LoanProcessPendingPageState extends State<LoanProcessPendingPage> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColor.lightBlue,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                 ),
@@ -1123,6 +1127,7 @@ class _LoanProcessPendingPageState extends State<LoanProcessPendingPage> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColor.lightBlue,
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                   ),

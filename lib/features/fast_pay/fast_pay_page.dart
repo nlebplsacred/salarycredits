@@ -87,7 +87,7 @@ class _FastPayPageState extends State<FastPayPage> {
     if (userBaseDashboard.shortLoanDetails.getStatusId == 2) {
       if (userBaseDashboard.shortLoanDetails.getIsProcessDone) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       } else {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
@@ -96,12 +96,12 @@ class _FastPayPageState extends State<FastPayPage> {
       }
     } else if (userBaseDashboard.shortLoanDetails.getStatusId == 1 || userBaseDashboard.shortLoanDetails.getStatusId == 4) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return LoanProcessStatusPage(loanType: productList.applicationType);
+        return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
       }));
     } else {
       if (actionTagDetails.statusId == 1) {
         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-          return LoanProcessStatusPage(loanType: productList.applicationType);
+          return LoanProcessStatusPage(loanType: productList.applicationType, loanId: userBaseDashboard.shortLoanDetails.getApplicationId);
         }));
       }
     }
@@ -240,6 +240,7 @@ class _FastPayPageState extends State<FastPayPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -487,70 +488,73 @@ class _FastPayPageState extends State<FastPayPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  ExpansionTile(
-                    title: const Text(
-                      "Have Promo Code?",
-                      style: AppStyle.pageTitle3,
-                    ),
-                    children: <Widget>[
-                      Form(
-                        key: formKey,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 0.0),
-                              child: SizedBox(
-                                width: 200.0,
-                                height: 55.0,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 4.0, left: 8.0, right: 8.0, bottom: 4.0),
-                                  child: TextFormField(
-                                    controller: promoController,
-                                    textCapitalization: TextCapitalization.characters,
-                                    style: const TextStyle(fontSize: 14.0),
-                                    decoration: const InputDecoration(
-                                      border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-                                      label: Text("Enter Code"),
+                  Theme(
+                    data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                    child: ExpansionTile(
+                      title: const Text(
+                        "Have Promo Code?",
+                        style: AppStyle.pageTitle3,
+                      ),
+                      children: <Widget>[
+                        Form(
+                          key: formKey,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 0.0),
+                                child: SizedBox(
+                                  width: 200.0,
+                                  height: 55.0,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 4.0, left: 8.0, right: 8.0, bottom: 4.0),
+                                    child: TextFormField(
+                                      controller: promoController,
+                                      textCapitalization: TextCapitalization.characters,
+                                      style: const TextStyle(fontSize: 14.0),
+                                      decoration: const InputDecoration(
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
+                                        label: Text("Enter Code"),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 100.0,
-                              child: TextButton(
-                                onPressed: () {
-                                  if (formKey.currentState!.validate()) {
-                                    // Navigate the user to the Home page
-                                    if (promoController.text.toString().isNotEmpty) {
-                                      getPromoCodeDetails(promoController.text.toString());
-                                    } else {
-                                      Global.showAlertDialog(context, "Coupon code is required");
+                              SizedBox(
+                                width: 100.0,
+                                child: TextButton(
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      // Navigate the user to the Home page
+                                      if (promoController.text.toString().isNotEmpty) {
+                                        getPromoCodeDetails(promoController.text.toString());
+                                      } else {
+                                        Global.showAlertDialog(context, "Coupon code is required");
+                                      }
                                     }
-                                  }
-                                },
-                                style: const ButtonStyle(
-                                    padding: MaterialStatePropertyAll(EdgeInsets.all(11)),
-                                    backgroundColor: MaterialStatePropertyAll(AppColor.lightBlue)),
-                                child: isLoadingPromo
-                                    ? const SizedBox(
-                                        width: 18,
-                                        height: 18,
-                                        child: CircularProgressIndicator(
-                                          backgroundColor: AppColor.white,
-                                          color: AppColor.lightBlue,
-                                        ),
-                                      )
-                                    : const Text("Apply", style: AppStyle.pageTitleWhite),
+                                  },
+                                  style: const ButtonStyle(
+                                      padding: MaterialStatePropertyAll(EdgeInsets.all(11)),
+                                      backgroundColor: MaterialStatePropertyAll(AppColor.lightBlue)),
+                                  child: isLoadingPromo
+                                      ? const SizedBox(
+                                          width: 18,
+                                          height: 18,
+                                          child: CircularProgressIndicator(
+                                            backgroundColor: AppColor.white,
+                                            color: AppColor.lightBlue,
+                                          ),
+                                        )
+                                      : const Text("Apply", style: AppStyle.pageTitleWhite),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 16),
-                    ],
+                        const SizedBox(height: 16),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -618,6 +622,7 @@ class _FastPayPageState extends State<FastPayPage> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.lightBlue,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                     ),
