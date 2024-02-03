@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:salarycredits/features/help_and_support/help_and_support_page.dart';
 
 import '../../../models/login/login_response_model.dart';
 import '../../../utility/global.dart';
@@ -17,38 +16,13 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      centerTitle: false,
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Hi ${user.firstName} ${user.lastName ?? ""}', textAlign: TextAlign.left),
-                  const Text(
-                    "Welcome to SalaryCredits",
-                    style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: AppColor.grey, height: 1.3),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 0.0),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return const HelpSupportPage();
-                    }));
-                  },
-                  icon: const Icon(Icons.support_agent_rounded, size: 26,),
-                  color: AppColor.lightBlue,
-                ),
-              ),
-            ],
+          Text('Hi ${user.firstName} ${user.lastName ?? ""}', textAlign: TextAlign.left),
+          const Text(
+            "Welcome to SalaryCredits",
+            style: TextStyle(fontSize: 13.0, fontWeight: FontWeight.w400, color: AppColor.grey, height: 1.3),
           ),
         ],
       ),

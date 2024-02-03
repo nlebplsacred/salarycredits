@@ -21,7 +21,7 @@ class _LoginTypePageState extends State<LoginTypePage> {
 
   Timer getTimer() {
     return Timer.periodic(const Duration(seconds: 3), (timer) {
-      if (pageNo == 6) {
+      if (pageNo == 5) {
         pageNo = 0;
       }
 
@@ -103,9 +103,9 @@ class _LoginTypePageState extends State<LoginTypePage> {
                                 children: [
                                   CircleAvatar(
                                     maxRadius: 30.0,
-                                    backgroundColor: AppColor.white,
-                                    child: Image.network(AppText.productIcon[index],
-                                        width: 50, height: 50, color: AppColor.lightBlue),
+                                    backgroundColor: AppColor.lightBlue,
+                                    child: Image.asset(AppText.productIcon[index],
+                                        width: 50, height: 50, color: AppColor.white),
                                   ),
                                 ],
                               ),

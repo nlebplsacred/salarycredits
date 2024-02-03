@@ -43,7 +43,7 @@ class _ViewInstallmentsPageState extends State<ViewInstallmentsPage> {
       if (date != "") {
         lDate = format.format(DateTime.parse(date));
       }
-    } on FormatException catch (_) {}
+    } on FormatException catch (_, ex) {}
 
     return lDate;
   }

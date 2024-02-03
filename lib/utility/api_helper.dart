@@ -60,7 +60,7 @@ class APIHelper {
   static String saveDcConsolidationRequest = "${baseUrl}api/DC/SaveConsolidationRequest";
   static String calculateEMI = "${baseUrl}api/loan/EMICalculator";
 
-  /*static String GET_MY_SHORT_LOAN_BY_BANK_LIST = "api/loan/GetLoanShortDetailsByBankAccount?accid=";
+  static String GET_MY_SHORT_LOAN_BY_BANK_LIST = "api/loan/GetLoanShortDetailsByBankAccount?accid=";
   static String GET_VIRTUAL_ACCOUNT_DETAILS = "api/loan/GetVirtualAccountDetails?aid=";
   static String SET_LANGUAGE_CODE = "api/user/AddLanguageCode";
   static String GET_KYC_ADDRESS = "api/Onboarding/GetApplicantKycAddress?aid=";
@@ -93,11 +93,11 @@ class APIHelper {
   static String GET_ALL_RENT_BENEFICIARY_LIST = "api/Rent/ViewBeneficiary?aid=";
   static String GET_ALL_RENT_SUMMARY = "api/Rent/ViewRentSummary?aid=";
   static String GET_RENT_PAYMENT_DETAILS = "api/Rent/RentPaymentDetails?tid=";
-*/
+
   //Save nominated employer details
 
   //NOT IN USE
- /* static String LOAN_LIMIT = "api/loan/GetLoanLimits?aid=";
+  static String LOAN_LIMIT = "api/loan/GetLoanLimits?aid=";
   static String GET_MY_DOCUMENTS = "api/file/GetDocumentByApplicantId?aid=";
   static String TERM_AND_CONDITION = "api/data/GetTermsUses";
   static String PRIVACY_POLICY = "api/data/GetPrivacyPolicy";
@@ -110,5 +110,5 @@ class APIHelper {
   static String REPAYMENTS_SCHEDULE = "api/loan/CheckEMIPlan?appid=";
   static String GET_DOCUMENT_LIST = "api/loan/GetDocuments?appid=";
   static String GET_LOAN_SUMMARY = "api/loan/GetLoanSummary?appid=";
-  static String DELETE_FILE = "api/file/RemoveFile?fid=";*/
+  static String DELETE_FILE = "api/file/RemoveFile?fid=";
 }

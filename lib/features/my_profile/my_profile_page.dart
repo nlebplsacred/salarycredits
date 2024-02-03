@@ -13,6 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:image_cropper/image_cropper.dart';
+
 import '../../models/document/document_model.dart';
 import '../../models/login/login_response_model.dart';
 import '../../services/file_handler.dart';
@@ -248,9 +249,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        //Permission is granted
-        //showImagePicker(); //Open the camera/gallery both
-        _imgFromCamera(); //Open only camera
+        showImagePicker(); // Permission is granted
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -288,7 +287,15 @@ class _MyProfilePageState extends State<MyProfilePage> {
     String? lLocation = userInformation?.cityName;
     String lUserTitle = "N/A";
 
-    lUserTitle = "$lDesignation | $lLocation";
+    if (lDesignation != null && lLocation != null) {
+      lUserTitle = "$lDesignation | $lLocation";
+    } else {
+      if (lLocation != null) {
+        lUserTitle = lLocation;
+      } else if (lDesignation != null) {
+        lUserTitle = lDesignation;
+      }
+    }
     return lUserTitle;
   }
 
@@ -298,7 +305,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
       if (dob != "") {
         lDOB = outputFormatDate.format(DateTime.parse(dob));
       }
-    } on FormatException catch (_) {}
+    } on FormatException catch (_, ex) {}
 
     return lDOB;
   }
@@ -431,8 +438,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
 
                                     fileTypeId = "4";
                                     if (status) {
-                                      //showImagePicker(); //Open the camera/gallery both
-                                      _imgFromCamera(); //Open only camera
+                                      showImagePicker(); //Open the camera
                                     } else {
                                       //open popup for prominent disclose of permission
                                       showAlertDialogForCamera();
@@ -453,7 +459,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15.0),
-                            child: Text('${user.firstName} ${user.lastName ?? "NA"}', style: AppStyle.pageTitleLarge1),
+                            child: Text('${user.firstName} ${user.lastName ?? "NA"}', style: AppStyle.userProfile),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
@@ -474,7 +480,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text("${Global.getYears(profileModel.userInformation!.dOB.toString())}Yrs", style: AppStyle.pageTitle),
+                            child: Text("${Global.getYears(profileModel.userInformation!.dOB.toString())}Yrs", style: AppStyle.userProfile),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
@@ -501,7 +507,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text('\u{20B9}${user.netPayableSalary?.round() ?? 0}', style: AppStyle.pageTitle),
+                            child: Text('\u{20B9}${user.netPayableSalary?.round() ?? 0}', style: AppStyle.userProfile),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
@@ -528,7 +534,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.only(top: 40.0),
-                            child: Text(profileModel.userInformation?.genderType ?? "NA", style: AppStyle.pageTitle),
+                            child: Text(profileModel.userInformation?.genderType ?? "NA", style: AppStyle.userProfile),
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 5.0),
@@ -566,7 +572,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -583,6 +588,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 SizedBox(
                   height: double.infinity,
+                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -606,14 +612,10 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ],
                   ),
                 ),
-                const Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 16.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Icon(Icons.done, size: 26, color: AppColor.green),
-                    ),
-                  ),
+                const SizedBox(
+                  height: double.infinity,
+                  width: 50,
+                  child: Icon(Icons.done, size: 28, color: AppColor.lightBlack),
                 ),
               ],
             ),
@@ -634,7 +636,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -643,7 +644,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     child: const ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                       child: Material(
-                        color: AppColor.bgScreen3,
+                        color: AppColor.darkBlue,
                         child: Icon(Icons.mobile_friendly_rounded, size: 24, color: AppColor.white),
                       ),
                     ),
@@ -651,6 +652,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 SizedBox(
                   height: double.infinity,
+                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -674,18 +676,14 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: () {
-                          showMobileUpdateView();
-                        },
-                        icon: const Icon(Icons.edit, size: 24, color: AppColor.darkBlue),
-                      ),
-                    ),
+                SizedBox(
+                  height: double.infinity,
+                  width: 50,
+                  child: IconButton(
+                    onPressed: () {
+                      showMobileUpdateView();
+                    },
+                    icon: const Icon(Icons.edit, size: 28, color: AppColor.darkBlue),
                   ),
                 ),
               ],
@@ -707,7 +705,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -724,6 +721,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 SizedBox(
                   height: double.infinity,
+                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -772,7 +770,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -792,6 +789,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 const SizedBox(
                   height: double.infinity,
+                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -806,33 +804,29 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right:16.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: kycPAN.filePath != null
-                          ? InkWell(
-                              onTap: () async {
-                                //show image/file
-                                String filePath = kycPAN.filePath.toString();
-                                if (filePath.contains(".pdf")) {
-                                  openPDFDialog(filePath, "PAN Card"); // Open the PDF dialog
-                                } else {
-                                  openIMGDialog(filePath, "PAN Card"); // Open the PDF dialog
-                                }
-                              },
-                              child: const Icon(Icons.download_done, size: 26, color: AppColor.darkBlue),
-                            )
-                          : IconButton(
-                              onPressed: () {
-                                fileTypeId = "1";
-                                showDialogForKycUpload("PAN Card", "A clear photo of PAN card"); //open popup to choose doc
-                              },
-                              icon: const Icon(Icons.upload_rounded, size: 26, color: AppColor.darkBlue),
-                            ),
-                    ),
-                  ),
+                SizedBox(
+                  height: double.infinity,
+                  width: 50,
+                  child: kycPAN.filePath != null
+                      ? InkWell(
+                          onTap: () async {
+                            //show image/file
+                            String filePath = kycPAN.filePath.toString();
+                            if (filePath.contains(".pdf")) {
+                              openPDFDialog(filePath, "PAN Card"); // Open the PDF dialog
+                            } else {
+                              openIMGDialog(filePath, "PAN Card"); // Open the PDF dialog
+                            }
+                          },
+                          child: const Icon(Icons.download_done, size: 28, color: AppColor.darkBlue),
+                        )
+                      : IconButton(
+                          onPressed: () {
+                            fileTypeId = "1";
+                            showDialogForKycUpload("PAN Card", "A clear photo of PAN card"); //open popup to choose doc
+                          },
+                          icon: const Icon(Icons.upload_rounded, size: 28, color: AppColor.darkBlue),
+                        ),
                 ),
               ],
             ),
@@ -853,7 +847,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               ],
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12.0),
@@ -873,6 +866,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 const SizedBox(
                   height: double.infinity,
+                  width: 200.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -887,49 +881,43 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right:16.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: SizedBox(
-                        child: kycAadhaar.isNotEmpty
-                            ? InkWell(
-                                onTap: () async {
-                                  //show image/file
+                SizedBox(
+                  height: double.infinity,
+                  width: 50,
+                  child: kycAadhaar.isNotEmpty
+                      ? InkWell(
+                          onTap: () async {
+                            //show image/file
 
-                                  if (kycAadhaar.length == 2) {
-                                    String filePath1 = kycAadhaar[0].filePath.toString();
-                                    String filePath2 = kycAadhaar[1].filePath.toString();
+                            if (kycAadhaar.length == 2) {
+                              String filePath1 = kycAadhaar[0].filePath.toString();
+                              String filePath2 = kycAadhaar[1].filePath.toString();
 
-                                    if (filePath1.contains(".pdf")) {
-                                      openPDFDialog(filePath1, "Aadhaar Card"); // Open the PDF dialog
-                                    } else {
-                                      if (!filePath1.contains(".pdf") && !filePath2.contains(".pdf")) {
-                                        openIMGDialog2(filePath1, filePath2, "Aadhaar Card"); // Open the PDF dialog
-                                      }
-                                    }
-                                  } else {
-                                    String filePath = kycAadhaar[0].filePath.toString();
-                                    if (filePath.contains(".pdf")) {
-                                      openPDFDialog(filePath, "Aadhaar Card"); // Open the PDF dialog
-                                    } else {
-                                      openIMGDialog(filePath, "Aadhaar Card"); // Open the PDF dialog
-                                    }
-                                  }
-                                },
-                                child: const Icon(Icons.download_done, size: 26, color: AppColor.darkBlue),
-                              )
-                            : IconButton(
-                                onPressed: () {
-                                  fileTypeId = "2";
-                                  showDialogForKycUpload("Aadhaar Card", "A clear photo of Aadhaar Card (both sides)"); //open popup to choose doc
-                                },
-                                icon: const Icon(Icons.upload_rounded, size: 26, color: AppColor.darkBlue),
-                              ),
-                      ),
-                    ),
-                  ),
+                              if (filePath1.contains(".pdf")) {
+                                openPDFDialog(filePath1, "Aadhaar Card"); // Open the PDF dialog
+                              } else {
+                                if (!filePath1.contains(".pdf") && !filePath2.contains(".pdf")) {
+                                  openIMGDialog2(filePath1, filePath2, "Aadhaar Card"); // Open the PDF dialog
+                                }
+                              }
+                            } else {
+                              String filePath = kycAadhaar[0].filePath.toString();
+                              if (filePath.contains(".pdf")) {
+                                openPDFDialog(filePath, "Aadhaar Card"); // Open the PDF dialog
+                              } else {
+                                openIMGDialog(filePath, "Aadhaar Card"); // Open the PDF dialog
+                              }
+                            }
+                          },
+                          child: const Icon(Icons.download_done, size: 28, color: AppColor.darkBlue),
+                        )
+                      : IconButton(
+                          onPressed: () {
+                            fileTypeId = "2";
+                            showDialogForKycUpload("Aadhaar Card", "A clear photo of Aadhaar Card (both sides)"); //open popup to choose doc
+                          },
+                          icon: const Icon(Icons.upload_rounded, size: 28, color: AppColor.darkBlue),
+                        ),
                 ),
               ],
             ),
@@ -1117,7 +1105,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.lightBlue,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                   ),
@@ -1179,7 +1166,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                               Global.showAlertDialog(context, "Network not available");
                             }
                           });
-                        } on Exception {
+                        } on Exception catch (e) {
                           setState(() {
                             isLoading = false;
                             Global.showAlertDialog(context, "Network not available");
@@ -1236,7 +1223,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           mobileNumberMasked = "Mobile Number - ${Global.getMaskedMobile(mobileNumber)}";
                         });
                       });
-                    } on Exception {
+                    } on Exception catch (e) {
                       setState(() {
                         isLoading = false;
                         Global.showAlertDialog(context, "Network not available");
@@ -1347,7 +1334,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColor.lightBlue,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                   ),
@@ -1382,7 +1368,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                             mobileNumberMasked = "Mobile Number - ${Global.getMaskedMobile(mobileNumber)}";
                           });
                         });
-                      } on Exception {
+                      } on Exception catch (e) {
                         setState(() {
                           isLoading = false;
                           Global.showAlertDialog(context, "Network not available");
@@ -1710,7 +1696,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColor.lightBlue,
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(Radius.circular(8)), // <-- Radius
                                 ),

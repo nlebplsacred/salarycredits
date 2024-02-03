@@ -56,7 +56,7 @@ class _MyApplicationsPageState extends State<MyApplicationsPage> {
       if (date != "") {
         lDate = format.format(DateTime.parse(date));
       }
-    } on FormatException catch (_) {}
+    } on FormatException catch (_, ex) {}
 
     return lDate;
   }
@@ -66,7 +66,6 @@ class _MyApplicationsPageState extends State<MyApplicationsPage> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
-        centerTitle: false,
         elevation: 1.0,
         toolbarHeight: 60.0,
         titleSpacing: 2.0,
@@ -189,8 +188,8 @@ class _MyApplicationsPageState extends State<MyApplicationsPage> {
                             child: Material(
                               color: AppColor.lightBlue,
                               child: Padding(
-                                padding: const EdgeInsets.all(7),
-                                child: Image.network(Global.getIconPath(model.getShortLoanList[index].getApplicationTypeId), color: AppColor.white),
+                                padding: const EdgeInsets.all(3),
+                                child: Image.asset(Global.getIconName(model.getShortLoanList[index].getApplicationTypeId), color: AppColor.white),
                               ),
                             ),
                           ),
