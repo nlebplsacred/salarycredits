@@ -1,11 +1,11 @@
 class APIHelper {
   static String userName = "salarycreditmob";
   static String password = "S@larymobile";
-  static String RAZOR_PAY_ID_TEST = "rzp_test_06MJdyqMNzv8Jq";
-  static String RAZOR_PAY_ID_LIVE = "rzp_live_WNiiBDtTmhI1MW";
+  // static String RAZOR_PAY_ID_TEST = "rzp_test_06MJdyqMNzv8Jq";
+  // static String RAZOR_PAY_ID_LIVE = "rzp_live_WNiiBDtTmhI1MW";
 
-  //static String baseUrl = "https://mobile.salarycredits.com/v4/";latest
-  static String baseUrl = "https://api.salarycredits.com/v2/";
+  static String baseUrl = "https://mobile.salarycredits.com/v5/";
+  //static String baseUrl = "https://api.salarycredits.com/v2/";
   static String tokenUrl = "${baseUrl}token";
 
   static String emailLogin = "${baseUrl}api/user/PostAuthenticateUser";
