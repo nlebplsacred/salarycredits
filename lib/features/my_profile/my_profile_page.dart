@@ -62,22 +62,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
   double aniMaValue = 0;
   late BuildContext dContext; //variable for dialog context
 
-  // final networkConnectivity = Connectivity();
-  // bool isNetConnected = false;
-  //
-  // checkInternet() async {
-  //   ConnectivityResult result = await networkConnectivity.checkConnectivity();
-  //   if (result != ConnectivityResult.none) {
-  //     isNetConnected = true;
-  //   }
-  //
-  //   networkConnectivity.onConnectivityChanged.listen((result) {
-  //     if (result != ConnectivityResult.none) {
-  //       isNetConnected = true;
-  //     }
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
