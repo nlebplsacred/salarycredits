@@ -31,7 +31,6 @@ class AppText {
 
   static List<String> productName = [
     "Earned Wage Access",
-    "Fast Pay",
     "Salary Advance",
     "Custom Advance",
     "Debt Consolidation",
@@ -40,16 +39,14 @@ class AppText {
 
   static List<String> productIcon = [
     "https://data.salarycredits.com/content/images/icons/earn-wage-access.png",
-    "https://data.salarycredits.com/content/images/icons/fast_pay_loan.png",
     "https://data.salarycredits.com/content/images/icons/salary_advance_loan.png",
     "https://data.salarycredits.com/content/images/icons/custom_advance_loan.png",
     "https://data.salarycredits.com/content/images/icons/debt_consolidation_loan.png",
-    "https://data.salarycredits.com/content/images/icons/other_product.svg",
+    "https://data.salarycredits.com/content/images/icons/other_product.png",
   ];
 
   static List<String> productDesc = [
     "Earned Wage Access(EWA) lets you access 80% of earned wages instantly, promoting financial flexibility.",
-    "Pay Credit Cards bill, Rent or travel your favourite destinations with FastPay and pay back in 30 days.",
     "Fulfill your instant needs with Salary Advance, avail up to your one month salary and pay back in 3 easy EMIs.",
     "You can avail amount up to two lacs with flexible tenor up to 12 months with Short Term Loan.",
     "Debt Consolidation calculator can help you find the debt consolidation plan that’s right for you.",
