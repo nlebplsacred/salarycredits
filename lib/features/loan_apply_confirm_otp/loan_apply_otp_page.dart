@@ -198,7 +198,7 @@ class _LoanApplyOTPPageState extends State<LoanApplyOTPPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
-              child: Image.asset("assets/logo_favicon.png", width: 72, height: 72),
+              child: Image.asset("assets/images/logo_favicon.png", width: 72, height: 72),
             ),
           ],
         ),
@@ -442,7 +442,7 @@ class _LoanApplyOTPPageState extends State<LoanApplyOTPPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
-              child: Image.asset("assets/icon_logo_192_192.png", width: 72, height: 72),
+              child: Image.asset("assets/images/icon_logo_192_192.png", width: 72, height: 72),
             ),
           ],
         ),

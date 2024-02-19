@@ -768,7 +768,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         color: AppColor.bgScreen5,
                         child: Padding(
                           padding: const EdgeInsets.all(7),
-                          child: Image.asset("assets/pan_card.png", color: AppColor.white),
+                          child: Image.asset("assets/images/pan_card.png", color: AppColor.white),
                         ),
                       ),
                     ),
@@ -849,7 +849,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         color: AppColor.bgScreen6,
                         child: Padding(
                           padding: const EdgeInsets.all(7),
-                          child: Image.asset("assets/aadhaarCard.png", color: AppColor.white),
+                          child: Image.asset("assets/images/aadhaarCard.png", color: AppColor.white),
                         ),
                       ),
                     ),
@@ -1002,7 +1002,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                child: Image.asset("assets/logo_favicon.png", width: 72, height: 72),
+                child: Image.asset("assets/images/logo_favicon.png", width: 72, height: 72),
               ),
             ],
           ),
@@ -1265,7 +1265,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ClipRRect(
-                child: Image.asset("assets/logo_favicon.png", width: 72, height: 72),
+                child: Image.asset("assets/images/logo_favicon.png", width: 72, height: 72),
               ),
             ],
           ),
@@ -1660,9 +1660,9 @@ class _MyProfilePageState extends State<MyProfilePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Image.asset("assets/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
-                              Image.asset("assets/jpg_icon.png", color: AppColor.loanBox3, width: 48.0, height: 48.0),
-                              Image.asset("assets/png_icon.png", color: AppColor.yellowLight, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/jpg_icon.png", color: AppColor.loanBox3, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/png_icon.png", color: AppColor.yellowLight, width: 48.0, height: 48.0),
                             ],
                           ),
                         ),

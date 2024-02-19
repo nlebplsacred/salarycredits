@@ -156,7 +156,7 @@ class _LoanApprovedOfferPageState extends State<LoanApprovedOfferPage> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(right:20.0),
-                                  child: Image.asset("assets/money-bag.png", width: 100.0, height: 100.0),
+                                  child: Image.asset("assets/images/money-bag.png", width: 100.0, height: 100.0),
                                 ),
                               ],
                             )

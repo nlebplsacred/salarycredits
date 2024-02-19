@@ -138,7 +138,7 @@ class _LoginWithEmailPageState extends State<LoginWithEmailPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClipRRect(
-              child: Image.asset("assets/logo_favicon.png", width: 72, height: 72),
+              child: Image.asset("assets/images/logo_favicon.png", width: 72, height: 72),
             ),
           ],
         ),

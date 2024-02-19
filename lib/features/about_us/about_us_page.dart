@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:salarycredits/features/splash_demo/splash_demo_page.dart';
 import 'package:salarycredits/values/styles.dart';
 
 import '../../values/colors.dart';
@@ -54,6 +55,17 @@ class _AboutUsPageState extends State<AboutUsPage> {
               const Text(
                   "The average person spends a third of their life at work. That's a lot of time, right? We believe this should be spent in an environment that's supportive and inspiring. Apart from providing personal loans, we help your employees get a better understanding of their money and provide many tips to change the way they think about and deal with money.",
                   style: AppStyle.smallGrey1),
+              // SizedBox(
+              //   height: 16.0,
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //       return const SplashDemoPage();
+              //     }));
+              //   },
+              //   child: const Text("Play Logo"),
+              // ),
             ],
           ),
         ),

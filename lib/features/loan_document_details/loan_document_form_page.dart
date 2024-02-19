@@ -666,7 +666,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Image.asset("assets/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
                             ],
                           ),
                         ),
@@ -675,9 +675,9 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Image.asset("assets/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
-                              Image.asset("assets/jpg_icon.png", color: AppColor.loanBox3, width: 48.0, height: 48.0),
-                              Image.asset("assets/png_icon.png", color: AppColor.yellowLight, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/pdf_icon.png", color: AppColor.bgScreen4, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/jpg_icon.png", color: AppColor.loanBox3, width: 48.0, height: 48.0),
+                              Image.asset("assets/images/png_icon.png", color: AppColor.yellowLight, width: 48.0, height: 48.0),
                             ],
                           ),
                         )

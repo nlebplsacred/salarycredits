@@ -466,7 +466,7 @@ class _MyApplicationDetailsPageState extends State<MyApplicationDetailsPage> {
                 children: [
                   SizedBox(
                     width: 60.0,
-                    child: Image.asset("assets/money_bag_blue.png", width: 40, height: 40, color: AppColor.darkBlue),
+                    child: Image.asset("assets/images/money_bag_blue.png", width: 40, height: 40, color: AppColor.darkBlue),
                   ),
                   const SizedBox(
                     width: 150.0,

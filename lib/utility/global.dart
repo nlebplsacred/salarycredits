@@ -17,25 +17,25 @@ class Global {
   }
 
   static String getIconName(int applicationTypeId) {
-    String lIConFIle = "assets/rupees1_white_100.png";
+    String lIConFIle = "assets/images/rupees1_white_100.png";
     switch (applicationTypeId) {
       case 13:
-        lIConFIle = "assets/ewa_white_64.png";
+        lIConFIle = "assets/images/ewa_white_64.png";
         break;
       case 9:
-        lIConFIle = "assets/fast_pay_white_100.png";
+        lIConFIle = "assets/images/fast_pay_white_100.png";
         break;
       case 6:
-        lIConFIle = "assets/rupees1_white_100.png";
+        lIConFIle = "assets/images/rupees1_white_100.png";
         break;
       case 5:
-        lIConFIle = "assets/stpl_white_100.png";
+        lIConFIle = "assets/images/stpl_white_100.png";
         break;
       case 3:
-        lIConFIle = "assets/debt_consolidation.png";
+        lIConFIle = "assets/images/debt_consolidation.png";
         break;
       case 1:
-        lIConFIle = "assets/pl_white_100.png";
+        lIConFIle = "assets/images/pl_white_100.png";
         break;
     }
     return lIConFIle;

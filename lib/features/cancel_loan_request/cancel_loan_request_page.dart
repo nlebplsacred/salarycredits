@@ -234,7 +234,7 @@ class _CancelLoanRequestPageState extends State<CancelLoanRequestPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           SizedBox(
-                            child: Image.asset("assets/sa_blue.png", width: 32, height: 32, color: AppColor.lightBlue),
+                            child: Image.asset("assets/images/sa_blue.png", width: 32, height: 32, color: AppColor.lightBlue),
                           ),
                           const SizedBox(width: 8.0),
                           SizedBox(

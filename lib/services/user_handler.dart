@@ -491,6 +491,7 @@ class UserHandler {
         Global.getReToken();
         token = prefsUser.getString('tokenValue');
       }
+
       var headers = {'Authorization': 'Bearer $token'};
       request.headers.addAll(headers);
       http.StreamedResponse response = await request.send();

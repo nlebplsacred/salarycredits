@@ -26,7 +26,7 @@ class Welcome3 extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
                     child: Image.asset(
-                        "assets/support_help_yellow_100.png",
+                        "assets/images/support_help_yellow_100.png",
                         color: AppColor.darkGrey,
                         width: 48.0,
                         height: 48.0)),
@@ -38,7 +38,7 @@ class Welcome3 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
-                    child: Image.asset("assets/best_rate.png",
+                    child: Image.asset("assets/images/best_rate.png",
                         color: AppColor.darkGrey, width: 48.0, height: 48.0)),
               ),
               Expanded(child: Text(AppText.slide2Item2, style: AppStyle.splashDesc))
@@ -48,7 +48,7 @@ class Welcome3 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
-                    child: Image.asset("assets/check_all.png",
+                    child: Image.asset("assets/images/check_all.png",
                         color: AppColor.darkGrey, width: 48.0, height: 48.0)),
               ),
               Expanded(child: Text(AppText.slide2Item3, style: AppStyle.splashDesc))

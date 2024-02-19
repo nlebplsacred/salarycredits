@@ -24,7 +24,7 @@ class Welcome1 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
-                    child: Image.asset("assets/loan_yellow_100.png",
+                    child: Image.asset("assets/images/loan_yellow_100.png",
                         color: AppColor.yellowLight, width: 48.0, height: 48.0)),
               ),
               Expanded(child: Text(AppText.slide1Item1, style: AppStyle.splashDesc))
@@ -34,7 +34,7 @@ class Welcome1 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
-                    child: Image.asset("assets/credit_card_yellow_100.png",
+                    child: Image.asset("assets/images/credit_card_yellow_100.png",
                         color: AppColor.yellowLight, width: 48.0, height: 48.0)),
               ),
               Expanded(child: Text(AppText.slide1Item2, style: AppStyle.splashDesc))
@@ -44,7 +44,7 @@ class Welcome1 extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: ClipRRect(
-                    child: Image.asset("assets/rent2_yellow_100.png",
+                    child: Image.asset("assets/images/rent2_yellow_100.png",
                         color: AppColor.yellowLight, width: 48.0, height: 48.0)),
               ),
               Expanded(child: Text(AppText.slide1Item3, style: AppStyle.splashDesc))

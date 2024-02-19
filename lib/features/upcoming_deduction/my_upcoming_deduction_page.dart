@@ -198,7 +198,7 @@ class _MyUpcomingDeductionPageState extends State<MyUpcomingDeductionPage> {
                         padding: const EdgeInsets.only(left: 12.0, top: 12.0, right: 12.0, bottom: 12.0),
                         child: SizedBox.fromSize(
                           size: const Size(36, 36),
-                          child: Image.asset("assets/money_bag_blue.png", color: AppColor.darkBlue),
+                          child: Image.asset("assets/images/money_bag_blue.png", color: AppColor.darkBlue),
                         ),
                       ),
                       const SizedBox(
