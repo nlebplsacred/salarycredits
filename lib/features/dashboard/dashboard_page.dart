@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:salarycredits/features/active_salary_account/active_salary_account_page.dart';
 import 'package:salarycredits/features/cancel_loan_request/cancel_loan_request_page.dart';
@@ -230,7 +231,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   },
                                   child: Column(
                                     children: [
-                                      ClipRRect(child: Image.asset("assets/cancel_l_blue.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
+                                      ClipRRect(child: Image.asset("assets/images/cancel_l_blue.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
                                       const Padding(
                                         padding: EdgeInsets.only(top: 8.0),
                                         child: Text("Cancel Request", style: AppStyle.userTitle),
@@ -249,7 +250,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   },
                                   child: Column(
                                     children: [
-                                      ClipRRect(child: Image.asset("assets/list_loans.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
+                                      ClipRRect(child: Image.asset("assets/images/list_loans.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
                                       const Padding(
                                         padding: EdgeInsets.only(top: 8.0),
                                         child: Text("Applications", style: AppStyle.userTitle),
@@ -269,7 +270,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   },
                                   child: Column(
                                     children: [
-                                      ClipRRect(child: Image.asset("assets/bill_payment.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
+                                      ClipRRect(child: Image.asset("assets/images/bill_payment.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
                                       const Padding(
                                         padding: EdgeInsets.only(top: 8.0),
                                         child: Text("Statements", style: AppStyle.userTitle),
@@ -296,7 +297,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   },
                                   child: Column(
                                     children: [
-                                      ClipRRect(child: Image.asset("assets/bank_dark_100.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
+                                      ClipRRect(child: Image.asset("assets/images/bank_dark_100.png", color: AppColor.darkBlue, width: 32.0, height: 32.0)),
                                       const Padding(
                                         padding: EdgeInsets.only(top: 8.0),
                                         child: Text("Active Salary Account", style: AppStyle.userTitle),
