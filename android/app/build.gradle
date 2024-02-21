@@ -37,8 +37,8 @@ android {
         applicationId "com.northernlights.salarycredits"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 47
-        versionName "2.4.7"
+        versionCode 46
+        versionName "2.4.6"
 //        versionCode flutterVersionCode.toInteger()
 //        versionName flutterVersionName
 
