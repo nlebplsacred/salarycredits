@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
+// import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mime/mime.dart';
@@ -12,7 +13,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:salarycredits/features/loan_terms_acceptance_details/loan_terms_acceptance_page.dart';
 import 'package:salarycredits/utility/custom_loader.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../models/document/document_model.dart';
 import '../../models/loan/loan_model.dart';
 import '../../models/login/login_response_model.dart';
@@ -138,21 +138,22 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
     }
 
     //choose file
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: allowedExt,
+    FlutterDocumentPickerParams extParams = FlutterDocumentPickerParams(
+      allowedFileExtensions: allowedExt,
+      invalidFileNameSymbols: ['/'],
     );
 
-    if (result != null) {
-      //PlatformFile file = result.files.first;
+    final path = await FlutterDocumentPicker.openDocument(params: extParams);
 
-      final mimeType = lookupMimeType(result.files.single.path!);
+    if (path != null) {
+
+      final mimeType = lookupMimeType(path);
 
       if (mimeType!.startsWith("image/")) {
-        _cropImage(File(result.files.single.path!));
+        _cropImage(File(path));
       } else {
         setState(() {
-          kycFile = File(result.files.single.path!);
+          kycFile = File(path);
           isFileSelected = true;
           aniMaValue = 100;
           determinateIndicator();
@@ -232,11 +233,7 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
     if (await permission.isDenied) {
       final result = await permission.request();
       if (result.isGranted) {
-        if (mPdfOnly) {
-          _imgFromGallery(); //open only gallery
-        } else {
-          showImagePicker(); //Open the camera
-        }
+        _imgFromCamera();
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
       } else if (result.isPermanentlyDenied) {
@@ -248,6 +245,29 @@ class _LoanDocumentsFormPageState extends State<LoanDocumentsFormPage> {
       }
     }
   }
+
+  // Future<void> requestCameraPermission() async {
+  //   const permission = Permission.camera;
+  //
+  //   if (await permission.isDenied) {
+  //     final result = await permission.request();
+  //     if (result.isGranted) {
+  //       if (mPdfOnly) {
+  //         _imgFromGallery(); //open only gallery
+  //       } else {
+  //         showImagePicker(); //Open the camera
+  //       }
+  //     } else if (result.isDenied) {
+  //       showAlertDialogForCamera(); // Permission is denied
+  //     } else if (result.isPermanentlyDenied) {
+  //       openAppSettings();
+  //     }
+  //   } else {
+  //     if (await permission.status.isPermanentlyDenied) {
+  //       openAppSettings();
+  //     }
+  //   }
+  // }
 
   Future<bool> checkCameraPermission() async {
     const permission = Permission.camera;

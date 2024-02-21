@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
+
+// import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_document_picker/flutter_document_picker.dart';
 import 'package:salarycredits/models/profile/profile_model.dart';
 import 'package:salarycredits/services/user_handler.dart';
 import 'package:salarycredits/values/styles.dart';
@@ -76,6 +78,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
 
   @override
   void dispose() {
+    //controller?.dispose();
     super.dispose();
   }
 
@@ -138,6 +141,10 @@ class _MyProfilePageState extends State<MyProfilePage> {
           isLoading = false;
           documents = result;
 
+          passwordController.text = ""; //reset
+          isFileSelected = false;
+          kycFile = File("");
+
           Navigator.of(dContext).pop(); //Close the dialog
         });
       }).catchError((err, stackTrace) {
@@ -150,6 +157,25 @@ class _MyProfilePageState extends State<MyProfilePage> {
       setState(() {
         isLoading = false;
         error = 'Network not available';
+      });
+    }
+  }
+
+  //NOT in use
+  _fileFromGallery() async {
+    FlutterDocumentPickerParams extParams = FlutterDocumentPickerParams(
+      allowedFileExtensions: ['jpg', 'pdf', 'jpeg', 'png'],
+      allowedMimeTypes: ['image/*|application/pdf'],
+    );
+
+    final path = await FlutterDocumentPicker.openDocument(params: extParams);
+
+    if (path != null) {
+      setState(() {
+        kycFile = File(path);
+        isFileSelected = true;
+        aniMaValue = 100;
+        determinateIndicator();
       });
     }
   }
@@ -233,7 +259,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
       final result = await permission.request();
       if (result.isGranted) {
         //Permission is granted
-        //showImagePicker(); //Open the camera/gallery both
         _imgFromCamera(); //Open only camera
       } else if (result.isDenied) {
         showAlertDialogForCamera(); // Permission is denied
@@ -415,7 +440,6 @@ class _MyProfilePageState extends State<MyProfilePage> {
 
                                     fileTypeId = "4";
                                     if (status) {
-                                      //showImagePicker(); //Open the camera/gallery both
                                       _imgFromCamera(); //Open only camera
                                     } else {
                                       //open popup for prominent disclose of permission
@@ -792,7 +816,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(right:16.0),
+                    padding: const EdgeInsets.only(right: 16.0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: kycPAN.filePath != null
@@ -873,7 +897,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(right:16.0),
+                    padding: const EdgeInsets.only(right: 16.0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: SizedBox(
@@ -924,7 +948,7 @@ class _MyProfilePageState extends State<MyProfilePage> {
   }
 
   //start region img picker
-  void showImagePicker() {
+  void showCameraAndImagePicker() {
     showModalBottomSheet(
       context: context,
       builder: (builder) {
@@ -955,6 +979,73 @@ class _MyProfilePageState extends State<MyProfilePage> {
                     ),
                     onTap: () {
                       _imgFromGallery();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: InkWell(
+                    child: const SizedBox(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.camera_alt,
+                            size: 60.0,
+                          ),
+                          SizedBox(height: 12.0),
+                          Text(
+                            "Camera",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          )
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      _imgFromCamera();
+                      Navigator.pop(context);
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void showCameraAndFilePicker() {
+    showModalBottomSheet(
+      context: context,
+      builder: (builder) {
+        return Card(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 140.0,
+            margin: const EdgeInsets.only(top: 8.0),
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: InkWell(
+                    child: const Column(
+                      children: [
+                        Icon(
+                          Icons.image,
+                          size: 60.0,
+                        ),
+                        SizedBox(height: 12.0),
+                        Text(
+                          "Gallery",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16, color: Colors.black),
+                        )
+                      ],
+                    ),
+                    onTap: () {
+                      _fileFromGallery();
                       Navigator.pop(context);
                     },
                   ),
@@ -1491,16 +1582,18 @@ class _MyProfilePageState extends State<MyProfilePage> {
                         const SizedBox(height: 32),
                         InkWell(
                           onTap: () async {
+
                             //choose file
-                            FilePickerResult? result = await FilePicker.platform.pickFiles(
-                              type: FileType.custom,
-                              allowedExtensions: ['jpg', 'pdf', 'jpeg', 'png'],
+                            FlutterDocumentPickerParams extParams = FlutterDocumentPickerParams(
+                              allowedFileExtensions: ['jpg', 'pdf', 'jpeg', 'png'],
+                              invalidFileNameSymbols: ['/'],
                             );
 
-                            if (result != null) {
-                              //PlatformFile file = result.files.first;
+                            final path = await FlutterDocumentPicker.openDocument(params: extParams);
+
+                            if (path != null) {
                               setState(() {
-                                kycFile = File(result.files.single.path!);
+                                kycFile = File(path);
                                 isFileSelected = true;
                                 aniMaValue = 100;
                                 determinateIndicator();

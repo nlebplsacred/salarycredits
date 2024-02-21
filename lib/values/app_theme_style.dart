@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   //AppTheme();
@@ -28,7 +28,7 @@ class AppTheme {
     primaryColor: AppColor.darkBlue,
     focusColor: AppColor.darkBlue,
     hintColor: AppColor.grey,
-    fontFamily: GoogleFonts.inter().fontFamily,
+    //fontFamily: GoogleFonts.inter().fontFamily,
     iconTheme: const IconThemeData(color: AppColor.darkBlue),
 
     //appBarTheme: const AppBarTheme(),

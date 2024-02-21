@@ -373,7 +373,7 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
   }
 
   //start region img picker
-  void showImagePicker() {
+  /*void showImagePicker() {
     showModalBottomSheet(
       context: context,
       builder: (builder) {
@@ -438,7 +438,7 @@ class _LoanProfilePicturePageState extends State<LoanProfilePicturePage> {
         );
       },
     );
-  }
+  }*/
 
   //end region
 
